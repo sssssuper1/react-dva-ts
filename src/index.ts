@@ -1,17 +1,15 @@
 import dva from 'dva'
-import { FastClick } from 'fastclick'
-import createHistory from 'history/createBrowserHistory'
+import { createBrowserHistory } from 'history'
 import createLoading from 'dva-loading-ts'
 
 import './theme/index.css'
 import * as serviceWorker from './serviceWorker'
 
+import Routers from './router'
 import user from './models/User'
 
-FastClick.attach(document.body)
-
 const app = dva({
-  history: createHistory(),
+  history: createBrowserHistory(),
   onError: (err: Error) => {
     console.log(err.message)
   }
@@ -20,6 +18,7 @@ const app = dva({
 app.use(createLoading())
 
 app.model(user)
+app.router(Routers)
 
 app.start('#root')
 // If you want your app to work offline and load faster, you can change
