@@ -1,5 +1,6 @@
 import React from 'react'
 import { Checkbox, Row, Col } from 'antd'
+import styles from './index.module.scss'
 
 type Picture = {
   id: string;
@@ -44,17 +45,17 @@ class PictureSelect extends React.Component<IProps> {
         >已选中{value.length}个文件</Checkbox>
       </Row>
       <Row>
-        {pictures.map(item => <Col key={item.id} style={{position: 'relative'}}>
-            <Checkbox
-              style={{position: 'absolute', left: 20, top: 20}}
-              checked={value.includes(item.id)}
-              onChange={this.handleCheck(item.id)}
-            />
-            <img 
-              style={{padding: 10}} 
-              src={item.url} 
-              alt={item.name}
-              onClick={this.handleCheck(item.id)}/>
+        {pictures.map(item => <Col key={item.id}>
+          <Checkbox
+            className={styles.checkbox}
+            checked={value.includes(item.id)}
+            onChange={this.handleCheck(item.id)}
+          />
+          <img 
+            className={styles.image}
+            src={item.url} 
+            alt={item.name}
+            onClick={this.handleCheck(item.id)}/>
         </Col>)}
       </Row>
     </div>
