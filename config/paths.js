@@ -65,6 +65,7 @@ module.exports = {
   proxySetup: resolveApp('src/setupProxy.js'),
   appNodeModules: resolveApp('node_modules'),
   publicUrlOrPath,
+  mockerPath: resolveApp('mock/mocker.js')
 };
 
 

@@ -1,29 +1,21 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import PictureSelect from '../../components/pictureSelect'
+import { getPictureList } from '../../services/api'
 
 const Page: React.SFC = () => {
-  const [value, setValue] = React.useState(['1']);
-  const pictures = [
-    {
-      id: '1',
-      name: 'foo',
-      url: 'https://gw.alipayobjects.com/mdn/rms_d212b7/afts/img/A*LlfeSa8N0WgAAAAAAAAAAABkARQnAQ'
-    },
-    {
-      id: '2',
-      name: 'foo',
-      url: 'https://gw.alipayobjects.com/mdn/rms_d212b7/afts/img/A*LlfeSa8N0WgAAAAAAAAAAABkARQnAQ'
-    },
-    {
-      id: '3',
-      name: 'foo',
-      url: 'https://gw.alipayobjects.com/mdn/rms_d212b7/afts/img/A*LlfeSa8N0WgAAAAAAAAAAABkARQnAQ'
-    },
-  ];
+  const [value, setValue] = useState(['1'])
+  const [pictures, setPictures] = useState([])
+
+  async function fetchPictures() {
+    const res = await getPictureList()
+    setPictures(res.data)
+  }
   
-  console.log(value); // 输出用户选择图片 id。
+  useEffect(() => {
+    fetchPictures()
+  }, [])
   
   return <PictureSelect pictures={pictures} value={value} onChange={(value) => setValue(value)} />
-};
+}
 
 export default Page

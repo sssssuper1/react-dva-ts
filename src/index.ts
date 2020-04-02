@@ -4,6 +4,7 @@ import createLoading from 'dva-loading-ts'
 
 import './theme/index.css'
 import * as serviceWorker from './serviceWorker'
+import './utls/rem'
 
 import Routers from './router'
 import user from './models/User'

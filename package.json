@@ -141,5 +141,9 @@
       "jest-watch-typeahead/filename",
       "jest-watch-typeahead/testname"
     ]
+  },
+  "devDependencies": {
+    "mocker-api": "^1.13.1",
+    "speed-measure-webpack-plugin": "^1.3.3"
   }
 }
