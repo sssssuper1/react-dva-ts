@@ -66,7 +66,8 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   publicUrlOrPath,
   mockerPath: resolveApp('mock/mocker.js'),
-  dllPath: resolveApp('build/dll')
+  dllPath: resolveApp('build/dll'),
+  vender: resolveApp('vender')
 };
 
 

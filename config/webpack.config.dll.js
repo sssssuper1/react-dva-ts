@@ -4,18 +4,18 @@ const path = require('path')
 
 module.exports = {
   entry: {
-    react: ['react', 'react-dom']
+    vender: ['react', 'react-dom']
   },
   mode: 'production',
   output: {
-    filename: '[name].dll.[hash:6].js',
-    path: paths.dllPath,
+    filename: 'static/js/[name].dll.[hash:6].js',
+    path: paths.appPublic,
     library: '[name]_dll'
   },
   plugins: [
     new webpack.DllPlugin({
       name: '[name]_dll',
-      path: path.resolve(paths.dllPath, 'manifest.json')
+      path: path.resolve(paths.vender, 'manifest.json')
     })
   ]
 }
