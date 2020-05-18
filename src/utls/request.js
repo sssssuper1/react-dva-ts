@@ -19,7 +19,7 @@ function checkStatus(response) {
  *
  * @param  {string} url       The URL we want to request
  * @param  {object} [options] The options we want to pass to "fetch"
- * @return {object}           An object containing either "data" or "err"
+ * @return {Promise<{data: any}>}           An object containing either "data" or "err"
  */
 function request(url, options) {
   return fetch(url, options)
